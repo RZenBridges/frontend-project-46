@@ -4,7 +4,6 @@ import { Command } from 'commander'
 import genDiff from '../src/gendiff.js'
 import { createRequire } from 'node:module'
 
-
 const require = createRequire(import.meta.url)
 const { version } = require('../package.json')
 
@@ -15,11 +14,12 @@ program
   .argument('<filepath1>')
   .argument('<filepath2>')
   .version(version, '-V, --version', 'output the version number')
+  .option('-f, --format [type]', 'output format')
 
 program.parse()
 
 const [filepath1, filepath2] = program.args
 
 const diff = genDiff(filepath1, filepath2)
-console.log(diff)
 
+console.log(diff)
