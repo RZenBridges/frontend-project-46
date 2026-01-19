@@ -12,11 +12,19 @@ function parseJson(filepath) {
 
 function parseFile(filepath) {
   if (filepath.endsWith('.json')) {
-    return parseJson
+    return parseJson(filepath)
   }
   else {
     console.log(console.log('This file format is not supported'))
   }
 }
 
-export { parseFile }
+function isAssociativeArray(value) {
+  if (typeof value === 'object' && value !== null) {
+    return !Array.isArray(value)
+  }
+
+  return false
+}
+
+export { isAssociativeArray, parseFile }

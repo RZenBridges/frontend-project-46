@@ -15,6 +15,6 @@ program
   .argument('<filepath2>')
   .version(version, '-V, --version', 'output the version number')
   .option('-f, --format [type]', 'output format', 'json')
-  .action((filepath1, filepath2) => { genDiff(filepath1, filepath2) })
+  .action((filepath1, filepath2) => console.log(genDiff(filepath1, filepath2)))
 
 program.parse()
